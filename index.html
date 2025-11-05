@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research Topic Analyzer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.28.0",
+    "pdfjs-dist/": "https://aistudiocdn.com/pdfjs-dist@^4.6.155/",
+    "mammoth": "https://aistudiocdn.com/mammoth@^1.8.0",
+    "firebase/": "https://aistudiocdn.com/firebase@^12.5.0/"
+  }
+}
+</script>
+<style>
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+    opacity: 0;
+  }
+  @keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+   @keyframes pulse-light {
+    0%, 100% { opacity: 0.8; filter: drop-shadow(0 0 3px #ec4899); }
+    50% { opacity: 1; filter: drop-shadow(0 0 12px #ec4899); }
+  }
+  .animate-pulse-light {
+    animation: pulse-light 3s ease-in-out infinite;
+  }
+  @keyframes spinner-rotate {
+    100% { transform: rotate(360deg); }
+  }
+  @keyframes spinner-dash {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -35px;
+    }
+    100% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -124px;
+    }
+  }
+  .spinner-path {
+    stroke-linecap: round;
+    animation: spinner-dash 1.5s ease-in-out infinite;
+  }
+  @keyframes fall-wobble {
+    0% { transform: rotate(0deg); }
+    30% { transform: rotate(-4deg); }
+    60% { transform: rotate(2deg); }
+    80% { transform: rotate(-1deg); }
+    100% { transform: rotate(0deg); }
+  }
+  .animate-fall-wobble {
+    animation: fall-wobble 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  @keyframes shimmer-flow {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  .shimmer-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+    transform: translateX(-100%);
+    animation: shimmer-flow 1.5s ease-in-out infinite;
+  }
+  body {
+    background-size: 400% 400%;
+    animation: gradient-animation 25s ease infinite;
+    --light-gradient: linear-gradient(-45deg, #fbcfe8, #f5d0fe, #ddd6fe, #c7d2fe);
+    --dark-gradient: linear-gradient(-45deg, #0b0f2c, #111827, #312e81, #4c1d95);
+    background-image: var(--light-gradient);
+  }
+  .dark body {
+    background-image: var(--dark-gradient);
+  }
+</style>
+</head>
+  <body class="text-slate-800 dark:text-slate-200">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

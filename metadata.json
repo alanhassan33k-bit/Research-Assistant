@@ -1,0 +1,5 @@
+{
+  "name": "Research Topic Analyzer",
+  "description": "An AI-powered application that analyzes research topics, provides feedback on uploaded papers, and generates new ideas.",
+  "requestFramePermissions": []
+}
